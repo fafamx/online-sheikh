@@ -1,0 +1,10 @@
+{
+  "name": "isitcorrect",
+  "description": "Correct the misspellings in Persian tweets.",
+  "version": "1.0.0",
+  "private": false,
+  "dependencies": {
+    "ntwitter": ">=0",
+    "request":">=2.x"
+  }
+}
