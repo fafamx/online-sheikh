@@ -60,7 +60,7 @@ IsItCorrect.prototype.checkWord = function(value,cb)
 	result = null;
 	var path = configs.api;
 	path = path.split("%word%").join(value);
-	//console.log("Request sent to :",path);
+	console.log("Request sent to :",path);
 	request(path, function (error, response, body) 
 	{
 		if (!error && response.statusCode == 200) 
@@ -79,7 +79,7 @@ IsItCorrect.prototype.check = function(value,cb)
 	for(var i=0;i<words.length;i++)
 	{
 		word = words[i];
-		word = word.replace(/[0-9]/g, '').replace(/[۰-۹]/g, '').replace(/[a-z]/g, '').replace(/[A-Z]/g, '');
+		word = word.replace(/[0-9]/g, '').replace(/[۰-۹]/g, '').replace(/[a-z]/gi, '');
 		if(word.length > 2)
 		{
 			this.checkWord(word,function(error, response, body){
@@ -127,6 +127,6 @@ IsItCorrect.prototype.check = function(value,cb)
 }
 
 var correctMe = new IsItCorrect();
-correctMe.check("این باسه من طنبان نمیشه!",function(reslt){
+correctMe.check("قفرانی",function(reslt){
 
 });
